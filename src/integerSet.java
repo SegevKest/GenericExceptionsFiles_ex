@@ -23,9 +23,9 @@ public class integerSet {
 		}
 	}
 	
-	public static aSet<Integer> createSetFromUser(){
+	//public static aSet<Integer> createSetFromUser(){
 		
-	}
+	//}
 	
 	public static void main(String[] args) {
 		

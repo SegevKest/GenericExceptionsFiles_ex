@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class aSet<T extends Comparable<T>> {
+public class aSet<T extends Comparable<T>>  {
 
 	private ArrayList<T> setArray;
 
@@ -19,6 +19,15 @@ public class aSet<T extends Comparable<T>> {
 		}
 	}
 
+//	public int compareTo(T obj) {
+//		
+//		if ()
+//		return -1; 
+//
+//		return 0;
+//	}
+	
+
 	public boolean equals(Object setObj) {
 
 		aSet<T> toCompare;
@@ -26,16 +35,36 @@ public class aSet<T extends Comparable<T>> {
 		if (setObj == null || !(setObj instanceof aSet))
 			return false;
 
+		toCompare = (aSet<T>)setObj;
 		
-		if (set.compareTo(set1) == 0)
-			return true;
+		Iterator<T> thisIter = iterator();
+		Iterator<T> otherIter = toCompare.iterator();
+	
+		while (thisIter.hasNext() && otherIter.hasNext())
+		{
+			T currMem = thisIter.next();
+			T otherMem = otherIter.next();
+			
+			if (currMem.compareTo(otherMem) != 0)
+				return false;
+		}
+		
+		// Check if 1 set still has members and other dont
+		if ( (!thisIter.hasNext() && otherIter.hasNext()) ||
+				(thisIter.hasNext() && !otherIter.hasNext()) )
+			return false;
+		
 
-		return false;
+		return true;
+		
+//		if (set.compareTo(set1) == 0)
+//		return true;
+
 	}
 
 	// The method return true if the obj exist in the Set already, false if not.
-	public boolean isMember(T obj) {
-
+	public boolean isMember(Object obj) {
+			
 		if (setArray.contains(obj))
 			return true;
 		return false;
@@ -153,17 +182,25 @@ public class aSet<T extends Comparable<T>> {
 	  
 	  System.out.println( set.equals(set1));
 	  
-	  set.insert("Segev"); set.insert("hey"); set.insert("gev");
-	  set.insert("Shona");
+//	  set.insert("Segev"); 
+	  set.insert("hey"); 
+	  set.insert("gev");
+	//  set.insert("Shona");
 	  
-	  set1.insert("gev"); set1.insert("gev");
+	  set1.insert("hey");
+	  set1.insert("gev");
+	  
+	  System.out.println(set);
+	  System.out.println(set1);
+	  
 	  System.out.println( set.equals(set1));
-	  System.out.println(set); System.out.println(set1);
+	  
+
 	  
 	  
-	  set.intersect(set1);
+	//  set.intersect(set1);
 	  
 	  
-	  System.out.println(set); }
+	  }
 	 
 }
