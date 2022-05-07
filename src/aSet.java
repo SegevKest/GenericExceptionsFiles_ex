@@ -63,10 +63,18 @@ public class aSet<T extends Comparable<T>>  {
 	}
 
 	// The method return true if the obj exist in the Set already, false if not.
-	public boolean isMember(Object obj) {
+	public boolean isMember(T obj) {
 			
-		if (setArray.contains(obj))
-			return true;
+		
+		for( T arg: setArray)
+		{
+			if (arg.compareTo(obj) == 0)
+				return true;
+			
+		}
+//		
+//		if (setArray.contains(obj))
+//			return true;
 		return false;
 
 	}
@@ -179,10 +187,7 @@ public class aSet<T extends Comparable<T>>  {
 	  aSet<String> set = new aSet<String>(); 
 	  aSet<String> set1 = new aSet<String>();
 	  
-	  
-	  System.out.println( set.equals(set1));
-	  
-//	  set.insert("Segev"); 
+	  set.insert("Segev"); 
 	  set.insert("hey"); 
 	  set.insert("gev");
 	//  set.insert("Shona");
@@ -193,8 +198,9 @@ public class aSet<T extends Comparable<T>>  {
 	  System.out.println(set);
 	  System.out.println(set1);
 	  
-	  System.out.println( set.equals(set1));
 	  
+	  System.out.println( set.equals(set1));
+	  System.out.println( set.isMember("hy"));
 
 	  
 	  
