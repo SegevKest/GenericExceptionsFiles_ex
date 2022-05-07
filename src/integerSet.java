@@ -1,5 +1,6 @@
 import java.util.Iterator;
 import java.util.Random;
+import java.util.Scanner;
 
 public class integerSet {
 
@@ -23,15 +24,33 @@ public class integerSet {
 		}
 	}
 	
-	//public static aSet<Integer> createSetFromUser(){
+	// Method that gets 2 numbers from user and build set and return it
+	public static aSet<Integer> createSetFromUser(){
 		
-	//}
+		aSet<Integer> newSet = new aSet<Integer>();
+		
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter 2 numbers to create the new Set: \n");
+		int num1 = sc.nextInt();
+		int num2 = sc.nextInt();
+		
+	
+		newSet.insert(num1);
+		newSet.insert(num2);		
+		
+		sc.close();
+		
+		return newSet;
+	
+	}
 	
 	public static void main(String[] args) {
 		
 		aSet<Integer> set1 = new aSet<Integer>();
 		aSet<Integer> set2 = new aSet<Integer>();
 		aSet<Integer> set3 = new aSet<Integer>();
+		aSet<Integer> setFromUser = null;
 		
 		fillSetWithRandomNumbers(set1);
 		fillSetWithRandomNumbers(set2);
@@ -49,6 +68,13 @@ public class integerSet {
 		System.out.println("\nIntersection of 2 remain sets");
 		set1.intersect(set3);
 		System.out.println("Result "+ set1);
+		
+		setFromUser = createSetFromUser();
+		System.out.println("\nNew set received from User: "+ setFromUser);
+		System.out.println("User set is subset of set 1:  "+ set1.isSubset(setFromUser));
+		System.out.println("User set is subset of set 2:  "+ set2.isSubset(setFromUser));
+		System.out.println("User set is subset of set 3:  "+ set3.isSubset(setFromUser));
+
 		
 	}
 }
