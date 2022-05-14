@@ -41,7 +41,7 @@ public class integerSet {
 	
 	}
 	
-	
+	// Get a single integer from user to perform all required operations
 	public static int getNumberFromUser() {
 		
 		System.out.println("\nEnter a number to perform all operations: \n");
@@ -49,6 +49,26 @@ public class integerSet {
 		
 		
 		return num1;
+	}
+	
+	
+	
+	// 1.C 
+	// The methods gets return the Min E from the Set
+	public static <E extends Comparable<E>> E returnMinInSet(aSet<E> givenSet){
+		
+		Iterator<E> setIter = givenSet.iterator();
+		E currItem, minE = setIter.next();
+		
+		while (setIter.hasNext()) {
+			
+			currItem = setIter.next();
+			
+			if (currItem.compareTo(minE) < 0)
+				minE = currItem;
+		}
+		
+		return minE;
 	}
 	
 	public static void main(String[] args) {
