@@ -64,21 +64,15 @@ public class aSet<T>  {
 				 return true;		
 		}
 		
-		
-		/*
-		 * if (arg.compareTo(obj) == 0) return true
-		 */;
-//		
-//		if (setArray.contains(obj))
-//			return true;
 		return false;
 
 	}
 
 	// The method will insert a Generic type variable to the set - will return true
-	// if inserted, false if not
+	// if inserted, false if already member of this set
 	public boolean insert(T objToInsert) {
 
+		//Check if the given object is member of this set
 		if (this.isMember(objToInsert))
 			return false;
 		else
@@ -88,6 +82,7 @@ public class aSet<T>  {
 
 	}
 
+	
 	// The method will delete the parameter Obj from the Set (if exist), if not
 	// exist - do nothing
 	public void delete(T objToRemove) {
@@ -129,94 +124,103 @@ public class aSet<T>  {
 		return returnedStr;
 	}
 
+	
 	// the method will return the Iterator object for this Set
 	public Iterator<T> iterator() {
 
 		return setArray.iterator();
 	}
 
+	
 	// The method get new set and calculate its union with the current set
 	public void union(aSet<T> newSetForUnion) {
 
+		// Create the iterator obj
 		Iterator<T> newSetIterator = newSetForUnion.iterator();
 
+		// Iterate on all the set and check if exist 0 then check isMember - using the Iterator
 		while (newSetIterator.hasNext()) {
 
 			T currMem = newSetIterator.next();
 
+			// Only if the currMem is not part of this set, add it - Unoin
 			if (!this.isMember(currMem)) {
 				this.insert(currMem);
 			}
 		}
 	}
 
+	
 	// The method gets a new set and return the intersection of the 2 groups -
 	// inside the caller
 	public void intersect(aSet<T> newSetForIntersect) {
 
+		// THe new ArrayList that will contain all the intersection members.
 		ArrayList<T> theIntersect = new ArrayList<T>();
 
 		T currMem;
-
+		// Create the iterator obj
 		Iterator<T> currIterator = this.iterator();
 
+		// Iterate on all the set and check if exist 0 then check isMember - using the Iterator
 		while (currIterator.hasNext()) {
 
 			currMem = currIterator.next();
-
+			
+			//check if the current member from this set is also a member in the param set. If yes, then add it to the output set.
 			if (newSetForIntersect.isMember(currMem)) {
 				theIntersect.add(currMem);
 			}
 		}
 
+		// create a new obj to this SetArray that will contain intersection
 		setArray = new ArrayList<>(theIntersect);
 	}
 
+	
 	// The method return true if the given set it a subset of the current set. false if the set is not
-	// 
 	public boolean isSubset(aSet<T> possibleSubSet) {
 
-		Iterator<T> setIterator = possibleSubSet.iterator();
+		Iterator<T> setIterator = possibleSubSet.iterator();	// Create the iterator obj
 		T currMem;
 
+		// Iterate on all the set and check if exist 0 then check isMember - using the Iterator
 		while (setIterator.hasNext()) {
 			currMem = setIterator.next();
 
-			if (!this.isMember(currMem))
+			// check if the currMem obj is part of the currSet
+			if (!this.isMember(currMem))	
 				return false;
 		}
 		return true;
 	}
 
 	
-	  public static void main(String[] args) {
-	  
-	  
-	  aSet<String> set = new aSet<String>(); 
-	  aSet<String> set1 = new aSet<String>();
-	  
-	  set.insert("Segev"); 
-	  set.insert("hey"); 
-	  set.insert("gev");
-	//  set.insert("Shona");
-	  
-	  set1.insert("hey");
-	  set1.insert("gev");
-	  
-	  System.out.println(set);
-	  System.out.println(set1);
-	  
-	  System.out.println( set.isSubset(set1));
-	  
-	  System.out.println( set.isMember("hey"));
-
-	  
-	  
-	  set.intersect(set1);
-	  
-	  
-	  System.out.println(set);
-	  
-	  }
-	 
+	/*
+	 * public static void main(String[] args) {
+	 * 
+	 * 
+	 * aSet<String> set = new aSet<String>(); aSet<String> set1 = new
+	 * aSet<String>();
+	 * 
+	 * set.insert("Segev"); set.insert("hey"); set.insert("gev"); //
+	 * set.insert("Shona");
+	 * 
+	 * set1.insert("hey"); set1.insert("gev");
+	 * 
+	 * System.out.println(set); System.out.println(set1);
+	 * 
+	 * System.out.println( set.isSubset(set1));
+	 * 
+	 * System.out.println( set.isMember("hey"));
+	 * 
+	 * 
+	 * 
+	 * set.intersect(set1);
+	 * 
+	 * 
+	 * System.out.println(set);
+	 * 
+	 * }
+	 */
 }
