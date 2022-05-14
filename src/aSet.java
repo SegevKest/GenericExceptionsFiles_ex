@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class aSet<T extends Comparable<T>>  {
+public class aSet<T>  {
 
 	private ArrayList<T> setArray;
 
@@ -19,16 +19,7 @@ public class aSet<T extends Comparable<T>>  {
 		}
 	}
 
-//	public int compareTo(T obj) {
-//		
-//		if ()
-//		return -1; 
-//
-//		return 0;
-//	}
-	
-
-	public boolean equals(Object setObj) {
+/*	public boolean equals(Object setObj) {
 
 		aSet<T> toCompare;
 
@@ -61,17 +52,22 @@ public class aSet<T extends Comparable<T>>  {
 //		return true;
 
 	}
-
+*/
+	
 	// The method return true if the obj exist in the Set already, false if not.
 	public boolean isMember(T obj) {
 			
 		
 		for( T arg: setArray)
 		{
-			if (arg.compareTo(obj) == 0)
-				return true;
-			
+			 if (arg.equals(obj))
+				 return true;		
 		}
+		
+		
+		/*
+		 * if (arg.compareTo(obj) == 0) return true
+		 */;
 //		
 //		if (setArray.contains(obj))
 //			return true;
@@ -95,14 +91,26 @@ public class aSet<T extends Comparable<T>>  {
 	// The method will delete the parameter Obj from the Set (if exist), if not
 	// exist - do nothing
 	public void delete(T objToRemove) {
-
-		int indexOfObj;
+		
+		int indexOfObj = 0, i = 0;
 
 		if (this.isMember(objToRemove)) {
-			indexOfObj = setArray.indexOf(objToRemove);
-			// setArray.remove(objToRemove);
-			setArray.remove(indexOfObj);
+		
+			for( T arg: setArray)
+			{
+				 if (arg.equals(objToRemove))	{
+					 indexOfObj = i;
+					 break;
+				 }
+				 else
+					 i++;
+			}
+			setArray.remove(indexOfObj);	
 		}
+		
+		
+//		indexOfObj = setArray.indexOf(objToRemove);
+//		// setArray.remove(objToRemove);
 	}
 
 	// The method will print the Set
@@ -164,8 +172,8 @@ public class aSet<T extends Comparable<T>>  {
 		setArray = new ArrayList<>(theIntersect);
 	}
 
-	// The method return true if the given set it a subset of the current set. false
-	// if not
+	// The method return true if the given set it a subset of the current set. false if the set is not
+	// 
 	public boolean isSubset(aSet<T> possibleSubSet) {
 
 		Iterator<T> setIterator = possibleSubSet.iterator();
@@ -198,14 +206,16 @@ public class aSet<T extends Comparable<T>>  {
 	  System.out.println(set);
 	  System.out.println(set1);
 	  
+	  System.out.println( set.isSubset(set1));
 	  
-	  System.out.println( set.equals(set1));
-	  System.out.println( set.isMember("hy"));
+	  System.out.println( set.isMember("hey"));
 
 	  
 	  
-	//  set.intersect(set1);
+	  set.intersect(set1);
 	  
+	  
+	  System.out.println(set);
 	  
 	  }
 	 

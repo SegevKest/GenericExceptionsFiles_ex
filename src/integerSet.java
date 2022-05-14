@@ -24,7 +24,7 @@ public class integerSet {
 		}
 	}
 	
-	// Method that gets 2 numbers from user and build set and return it
+	// Method that gets 2 numbers from user and build set and return new Set
 	public static aSet<Integer> createSetFromUser(){
 		
 		aSet<Integer> newSet = new aSet<Integer>();
@@ -44,6 +44,8 @@ public class integerSet {
 		return newSet;
 	
 	}
+	
+	
 	
 	public static void main(String[] args) {
 		
@@ -68,6 +70,8 @@ public class integerSet {
 		System.out.println("\nIntersection of 2 remain sets");
 		set1.intersect(set3);
 		System.out.println("Result "+ set1);
+		
+		
 		
 		setFromUser = createSetFromUser();
 		System.out.println("\nNew set received from User: "+ setFromUser);
