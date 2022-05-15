@@ -2,10 +2,12 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class integerSet {
 
 	private static Scanner sc = new Scanner(System.in);
 	
+	// Get a set as a parameter and Fill it with Random numbers
 	public static void fillSetWithRandomNumbers( aSet<Integer> set) {
 		
 		boolean insertResult;
@@ -72,58 +74,77 @@ public class integerSet {
 	}
 	
 	public static void main(String[] args) {
+//		
+//		aSet<Integer> set1 = new aSet<Integer>();
+//		aSet<Integer> set2 = new aSet<Integer>();
+//		aSet<Integer> set3 = new aSet<Integer>();
+//		aSet<Integer> setFromUser = null;
+//		
+//		int numFromUser= 0;
+//		
+//		// Fill the sets with Random numbers
+//		fillSetWithRandomNumbers(set1);
+//		fillSetWithRandomNumbers(set2);
+//		fillSetWithRandomNumbers(set3);
+//		
+//		System.out.println("Sets");
+//		System.out.println("Set 1 :"+ set1);
+//		System.out.println("Set 2 :"+ set2);
+//		System.out.println("Set 3 :"+ set3);
+//		
+//		// Union of the 2 first Sets : 1+2
+//		System.out.println("\nUnion of 2 first sets");
+//		set1.union(set2);
+//		System.out.println("Result "+ set1);
+//		
+//		// Intersection of 2 remain sets 1+3
+//		System.out.println("\nIntersection of 2 remain sets");
+//		set1.intersect(set3);
+//		System.out.println("Result "+ set1);
+//		
+//		
+//		// Check Set from user is Subset of each set
+//		setFromUser = createSetFromUser();
+//		System.out.println("\nNew set received from User: "+ setFromUser);
+//		System.out.println("User set is subset of set 1:  "+ set1.isSubset(setFromUser));
+//		System.out.println("User set is subset of set 2:  "+ set2.isSubset(setFromUser));
+//		System.out.println("User set is subset of set 3:  "+ set3.isSubset(setFromUser));
+//
+//		
+//		// Get Number from user and perform actions
+//		numFromUser = getNumberFromUser();
+//		System.out.println("\nNumber received from User: "+ numFromUser);
+//		
+//		System.out.println("\nSet 1: "+set1 +". Is Number member of Set: "+ set1.isMember(numFromUser));
+//		
+//		set2.insert(numFromUser);
+//		System.out.println("\nAdded Number from user to second Set: " + set2 );
+//		
+//		set3.delete(numFromUser);
+//		System.out.println("\nDeleted Number from user from third Set: " + set3);
+//		
+//		
+//		sc.close();
+//		
+//		
 		
-		aSet<Integer> set1 = new aSet<Integer>();
-		aSet<Integer> set2 = new aSet<Integer>();
-		aSet<Integer> set3 = new aSet<Integer>();
-		aSet<Integer> setFromUser = null;
-		
-		int numFromUser= 0;
-		
-		// Fill the sets with Random numbers
-		fillSetWithRandomNumbers(set1);
-		fillSetWithRandomNumbers(set2);
-		fillSetWithRandomNumbers(set3);
-		
-		System.out.println("Sets");
-		System.out.println("Set 1 :"+ set1);
-		System.out.println("Set 2 :"+ set2);
-		System.out.println("Set 3 :"+ set3);
-		
-		// Union of the 2 first Sets : 1+2
-		System.out.println("\nUnion of 2 first sets");
-		set1.union(set2);
-		System.out.println("Result "+ set1);
-		
-		// Intersection of 2 remain sets 1+3
-		System.out.println("\nIntersection of 2 remain sets");
-		set1.intersect(set3);
-		System.out.println("Result "+ set1);
 		
 		
-		// Check Set from user is Subset of each set
-		setFromUser = createSetFromUser();
-		System.out.println("\nNew set received from User: "+ setFromUser);
-		System.out.println("User set is subset of set 1:  "+ set1.isSubset(setFromUser));
-		System.out.println("User set is subset of set 2:  "+ set2.isSubset(setFromUser));
-		System.out.println("User set is subset of set 3:  "+ set3.isSubset(setFromUser));
-
+		Person p1 = new Person("536654", "Segev","Kes","22031993");
+		Person p2 = new Person("2648", "Yuv","Kes","12012000");
+		Person p3 = new Person("111111111112", "Aviv","Kes","21032003");
+		Person p4 = new Person("111111111111", "Arie","Kes","13091968");
+		Person p5= new Person("536654", "Segev","Kes","22031993");
 		
 		
-		// Get Number from user and perform actions
-		numFromUser = getNumberFromUser();
-		System.out.println("\nNumber received from User: "+ numFromUser);
+		aSet<Person> p = new aSet<Person>();
+		p.insert(p1);		
+		p.insert(p2);
+		p.insert(p3);
+		p.insert(p4);
+		p.insert(p5);
 		
-		System.out.println("\nSet 1: "+set1 +". Is Number member of Set: "+ set1.isMember(numFromUser));
-		
-		set2.insert(numFromUser);
-		System.out.println("\nAdded Number from user to second Set: " + set2 );
-		
-		set3.delete(numFromUser);
-		System.out.println("\nDeleted Number from user from third Set: " + set3);
-		
-		
-		sc.close();
+		System.out.println(returnMinInSet(p));
 		
 	}
 }
