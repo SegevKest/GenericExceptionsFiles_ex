@@ -135,15 +135,16 @@ public class mainProgramQuestionOne {
 		return minE;
 	}
 	
+	
 	// This method contains the logic and Set creation of Persons for Q.1 - C
-	public static void questionOneC() {
+	public static void questionOneC() throws IllegalArgumentException{
 		
-		Person p1 = new Person("536654", "Segev","Kes","22031993");
-		Person p2 = new Person("2648", "Yuv","Kesq","12012000");
+		Person p1 = new Person("536652", "Segev","Kes","22031993");
+		Person p2 = new Person("26485A", "Yuv","Kesq","12012000");
 		Person p3 = new Person("111111111112", "Dan","Kes","21032003");
 		Person p4 = new Person("111111111111", "Shon","Kes","13091968");
 		Person p5= new Person("536654", "Segev","Kes","22031993");
-		
+
 		
 		aSet<Person> p = new aSet<Person>();
 		p.insert(p1);		
@@ -159,9 +160,14 @@ public class mainProgramQuestionOne {
 	// The main function -  with 2 calls for the relevant methods 
 	public static void main(String[] args) {
 
-		questionOneAandB();
+		//questionOneAandB();
 		
-		//questionOneC();
 		
+		try {
+			questionOneC();
+		}
+		catch(IllegalArgumentException e) {
+			System.out.println("Error at initialize Person, ID not Valid");
+		}
 	}
 }

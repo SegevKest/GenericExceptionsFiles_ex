@@ -11,8 +11,11 @@ public class Person implements Comparable<Person> {
 	
 	// constructor of Person Class
 	// Gets ID, First and Last name and BirthDate
-	public Person(String idNumber, String fName, String lName, String birthDate) {
+	public Person(String idNumber, String fName, String lName, String birthDate) throws IllegalArgumentException {
 		
+		if ( idContainsLetters(idNumber))
+			throw new IllegalArgumentException("The id must include only digits!");
+			
 		idNum = idNumber;
 		firstName = fName;
 		lastName = lName;
@@ -55,4 +58,15 @@ public class Person implements Comparable<Person> {
 		return "ID: "+idNum + "\nName: "+firstName + " "+ lastName + "\nDate Of Birth: "+dateOfBirth;
 	}
 	
+	
+	private boolean idContainsLetters(String givenIdNum) {
+		
+		for ( int i = 0; i<givenIdNum.length(); i++) {
+			
+			if (! Character.isDigit(givenIdNum.charAt(i)))
+				return true;
+			
+		}
+		return false;
+	}
 }
