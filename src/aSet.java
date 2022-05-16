@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
+//The Set Class - represent a Generic class of a set, implemented as a ArrayList
+// All members in the set will occur only once, and will have all relevant operations
+
 public class aSet<T>  {
 
 	private ArrayList<T> setArray;
@@ -18,46 +21,11 @@ public class aSet<T>  {
 			insert(arg);
 		}
 	}
-
-/*	public boolean equals(Object setObj) {
-
-		aSet<T> toCompare;
-
-		if (setObj == null || !(setObj instanceof aSet))
-			return false;
-
-		toCompare = (aSet<T>)setObj;
-		
-		Iterator<T> thisIter = iterator();
-		Iterator<T> otherIter = toCompare.iterator();
 	
-		while (thisIter.hasNext() && otherIter.hasNext())
-		{
-			T currMem = thisIter.next();
-			T otherMem = otherIter.next();
-			
-			if (currMem.compareTo(otherMem) != 0)
-				return false;
-		}
-		
-		// Check if 1 set still has members and other dont
-		if ( (!thisIter.hasNext() && otherIter.hasNext()) ||
-				(thisIter.hasNext() && !otherIter.hasNext()) )
-			return false;
-		
-
-		return true;
-		
-//		if (set.compareTo(set1) == 0)
-//		return true;
-
-	}
-*/
 	
 	// The method return true if the obj exist in the Set already, false if not.
 	public boolean isMember(T obj) {
 			
-		
 		for( T arg: setArray)
 		{
 			 if (arg.equals(obj))
@@ -65,7 +33,6 @@ public class aSet<T>  {
 		}
 		
 		return false;
-
 	}
 
 	// The method will insert a Generic type variable to the set - will return true
@@ -108,6 +75,7 @@ public class aSet<T>  {
 //		// setArray.remove(objToRemove);
 	}
 
+	
 	// The method will print the Set
 	public String toString() {
 
@@ -195,32 +163,4 @@ public class aSet<T>  {
 		return true;
 	}
 
-	
-	/*
-	 * public static void main(String[] args) {
-	 * 
-	 * 
-	 * aSet<String> set = new aSet<String>(); aSet<String> set1 = new
-	 * aSet<String>();
-	 * 
-	 * set.insert("Segev"); set.insert("hey"); set.insert("gev"); //
-	 * set.insert("Shona");
-	 * 
-	 * set1.insert("hey"); set1.insert("gev");
-	 * 
-	 * System.out.println(set); System.out.println(set1);
-	 * 
-	 * System.out.println( set.isSubset(set1));
-	 * 
-	 * System.out.println( set.isMember("hey"));
-	 * 
-	 * 
-	 * 
-	 * set.intersect(set1);
-	 * 
-	 * 
-	 * System.out.println(set);
-	 * 
-	 * }
-	 */
 }

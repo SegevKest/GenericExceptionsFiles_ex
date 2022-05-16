@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-public class integerSet {
+public class mainProgramQuestionOne {
 
 	private static Scanner sc = new Scanner(System.in);
 	
@@ -156,12 +156,12 @@ public class integerSet {
 	}
 
 	
-	
+	// The main function -  with 2 calls for the relevant methods 
 	public static void main(String[] args) {
 
-		//questionOneAandB();
+		questionOneAandB();
 		
-		questionOneC();
+		//questionOneC();
 		
 	}
 }

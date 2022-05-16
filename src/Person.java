@@ -1,4 +1,6 @@
-
+//Created the Person Class for Q1.C
+// The person will have ID, First and Last name and Date of Birth
+// The person will implement the Comparable interface - so it will be able to compare 2 persons.
 public class Person implements Comparable<Person> {
 
 	private String idNum;
@@ -7,6 +9,8 @@ public class Person implements Comparable<Person> {
 	private String dateOfBirth;
 	
 	
+	// constructor of Person Class
+	// Gets ID, First and Last name and BirthDate
 	public Person(String idNumber, String fName, String lName, String birthDate) {
 		
 		idNum = idNumber;
@@ -15,26 +19,25 @@ public class Person implements Comparable<Person> {
 		dateOfBirth = birthDate;
 	}
 	
+	
+	// The compareTo method as required, due to implementation of Comparable interface
+	// Compare the Persons with ID number.
 	public int compareTo(Person otherPerson) {
 		
 			// This Person is lexicographically first
 		if (this.idNum.compareTo(otherPerson.idNum) > 0)
 			return 1;
 		else {
-			
 			// Other Person is is lexicographically first
-			if (this.idNum.compareTo(otherPerson.idNum) < 0) {
-				
+			if (this.idNum.compareTo(otherPerson.idNum) < 0) 
 				return -1;
-			}
-			
-			// Both are lexicographically equivalent
-			return 0;
-		}
-		
+		}		
+		// Both are lexicographically equivalent
+		return 0;
 	}
 	
 	
+	// Override the Equals method, to check equality of 2 Persons - with their ID
 	public boolean equals(Object other) {
 		
 		if (other == null || !(other instanceof Person))
@@ -46,9 +49,10 @@ public class Person implements Comparable<Person> {
 	}
 	
 	
+	// Override the toString method -  print the person's details.
 	public String toString() {
 		
-		return idNum + ", "+firstName + " "+ lastName;
+		return "ID: "+idNum + "\nName: "+firstName + " "+ lastName + "\nDate Of Birth: "+dateOfBirth;
 	}
 	
 }
